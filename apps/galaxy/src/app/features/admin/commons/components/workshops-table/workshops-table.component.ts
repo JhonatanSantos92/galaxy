@@ -16,5 +16,4 @@ export class WorkshopsTableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

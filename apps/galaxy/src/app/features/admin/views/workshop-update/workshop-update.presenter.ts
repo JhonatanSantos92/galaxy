@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { InstructorsHttp } from '../../commons/http/instructors.http';
+import { GlxInstructorsHttp } from '@galaxy/commons/http/instructor';
 import { MatDialog } from '@angular/material/dialog';
 import { GlxLoadingComponent } from '@galaxy/commons/components';
-import { Instructor } from '../../models/instructor.model';
 import { finalize } from 'rxjs/operators';
 import { GlxWorkshopsHttp } from '@galaxy/commons/http/workshop';
-import { WorkshopRequest } from '@galaxy/commons/models';
+import { WorkshopRequest, Instructor } from '@galaxy/commons/models';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Workshop } from '@galaxy/commons/models';
 import { forkJoin } from 'rxjs';
@@ -18,7 +17,7 @@ export class WorkshopUpdatePresenter {
   workshopId: string;
 
   constructor(
-    private instructorsHttp: InstructorsHttp,
+    private instructorsHttp: GlxInstructorsHttp,
     private workshopsHttp: GlxWorkshopsHttp,
     private dialog: MatDialog,
     private router: Router,
@@ -27,9 +26,7 @@ export class WorkshopUpdatePresenter {
 
   initial() {
     this.workshopId = this.route.snapshot.paramMap.get('id');
-
     const loading = this.dialog.open(GlxLoadingComponent, { disableClose: true });
-
     forkJoin({
       instructors: this.instructorsHttp.getAll(),
       workshop: this.workshopsHttp.getOne(this.workshopId)
@@ -77,6 +74,9 @@ export class WorkshopUpdatePresenter {
     });
   }
 
+  cancelWorkshops(){
+    this.goWorkshops();
+  }
   goWorkshops() {
     this.router.navigateByUrl('/administrador/talleres');
   }

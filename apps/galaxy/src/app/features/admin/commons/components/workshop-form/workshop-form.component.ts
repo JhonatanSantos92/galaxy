@@ -1,7 +1,6 @@
 import { Component, Output, EventEmitter, Input, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Instructor } from '../../../models/instructor.model';
-import { WorkshopRequest } from '@galaxy/commons/models';
+import { WorkshopRequest, Instructor } from '@galaxy/commons/models';
 import { Workshop } from '@galaxy/commons/models';
 
 @Component({
@@ -13,6 +12,7 @@ export class WorkshopFormComponent implements OnInit, OnChanges {
   @Input() workshop: Workshop;
   @Input() instructors: Instructor[] = [];
   @Output() save: EventEmitter<WorkshopRequest> = new EventEmitter<WorkshopRequest>();
+  @Output() cancelar: EventEmitter<any> = new EventEmitter<any>();
   form: FormGroup;
 
   get nameField() {
@@ -69,5 +69,7 @@ export class WorkshopFormComponent implements OnInit, OnChanges {
     }
   }
 
-
+  cancel(){
+    this.cancelar.emit();
+  }
 }

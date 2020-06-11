@@ -11,6 +11,8 @@ import { WorkshopDeleteModalComponent } from './workshop-delete-modal/workshop-d
 import { WorkshopUploadPosterComponent } from './workshop-upload-poster/workshop-upload-poster.component';
 import { GlxDefaultImgPipeModule } from '@galaxy/commons/pipe';
 import { GlxInputFileModule } from '@galaxy/commons/components';
+import { InstructorsTableComponent } from './instructors-table/instructors-table.component';
+import { InstructorFormComponent } from './instructor-form/instructor-form.component';
 
 const COMPONENTS = [
   MenuComponent,
@@ -18,11 +20,13 @@ const COMPONENTS = [
   PageTitleComponent,
   WorkshopFormComponent,
   WorkshopDeleteModalComponent,
-  WorkshopUploadPosterComponent
+  WorkshopUploadPosterComponent,
+  InstructorsTableComponent,
+  InstructorFormComponent,
 ];
 
 @NgModule({
-  declarations: [ ...COMPONENTS ],
+  declarations: [ ...COMPONENTS, InstructorsTableComponent, InstructorFormComponent ],
   exports: [ ...COMPONENTS ],
   imports: [
     CommonModule,

@@ -3,5 +3,6 @@
 <app-workshop-form 
   class="mat-elevation-z4"
   [instructors]="presenter.instructors"
-  (save)="presenter.createWorkshop($event)">
+  (save)="presenter.createWorkshop($event)"
+  (cancelar)="presenter.cancelWorkshops()">
 </app-workshop-form>

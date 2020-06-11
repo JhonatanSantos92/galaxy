@@ -8,8 +8,9 @@ import { MenuOption } from './interfaces/menu-option.interface';
 })
 export class AdminComponent implements OnInit {
   menuOpts: MenuOption[] =  [
-    { title: 'Talleres', icon: 'bookmark', url: '/administrador/talleres' }
-  ]
+    { title: 'Talleres', icon: 'bookmark', url: '/administrador/talleres' },
+    { title: 'Instructores', icon: 'bookmark', url: '/administrador/instructores' }
+  ];
   constructor() { }
 
   ngOnInit(): void {

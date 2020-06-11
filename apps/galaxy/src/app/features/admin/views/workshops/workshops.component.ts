@@ -7,6 +7,7 @@ import { WorkshopsPresenter } from './workshops.presenter';
   styleUrls: ['./workshops.component.scss'],
   providers: [ WorkshopsPresenter ]
 })
+
 export class WorkshopsComponent implements OnInit {
 
   constructor(public presenter: WorkshopsPresenter) { }
